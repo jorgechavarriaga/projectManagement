@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.tittle %>
+  </p>
+  
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<div id="todo_items_wrapper">
+  <%= render @project.tasks %>
+  <div id="form">
+    <%= render "tasks/form" %>
+  </div>
+</div>
+
+
+
+<div>
+  <%= link_to "Edit this project", edit_project_path(@project) %> |
+  <%= link_to "Back to projects", projects_path %>
+
+  <%= button_to "Destroy this project", @project, method: :delete %>
+</div>
