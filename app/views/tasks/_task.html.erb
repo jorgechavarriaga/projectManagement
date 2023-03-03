@@ -1,23 +1,31 @@
-<div class="row clearfix>
-    <% if task.completed? %>
-        <div class="complete">
-            <%= button_to "Mark as complete", complete_project_task_path(@project, task.id), method: :patch %>
-        </div>
-        <div class="task">
-            <p style = "opacity: 0.4;"><strike><%= task.content %></strike></p>
-        </div>
-        <div class="trash">
-            <%= button_to "Delete", project_task_path(@project, task.id), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
-        </div>
-    <% else %>
-        <div class="complete">
-            <%= button_to "Mark as complete", complete_project_task_path(@project, task.id), method: :patch %>
-        </div>
-        <div class="task">
-            <p><%= task.content %></p>
-        </div>
-        <div class="trash">
-            <%= button_to "Delete", project_task_path(@project, task.id), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
-        </div>
-    <% end %>
+<div class="row clearfix">
+	<% if task.completed? %>
+		<div class="complete">
+			<%= button_to complete_project_task_path(@project, task.id), method: :patch do %>
+				<i style="opacity:0.4;" class="fa fa-check" style="color: black"></i>
+			<% end %>
+		</div>
+		<div class="todo_item">
+			<p style="opacity: 0.4;"><strike><%= task.content %></strike></p>
+		</div>
+		<div class="trash">
+			<%= button_to project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+				<i class="fa fa-trash" style="color: black"></i>
+			<% end %>
+		</div>
+	<% else %>
+		<div class="complete">
+			<%= button_to complete_project_task_path(@project, task.id), method: :patch do %>
+				<i class="fa fa-check" style="color: black"></i>
+			<% end %>
+		</div>
+		<div class="todo_item">
+			<p><%= task.content %></p>
+		</div>
+		<div class="trash">
+			<%= button_to project_task_path(@project, task.id), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete do %>
+				<i class="fa fa-trash" style="color: black"></i>
+			<% end %>
+		</div>
+	<% end %>
 </div>

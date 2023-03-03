@@ -1,27 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.tittle %>
-  </p>
-  
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+<h2 class="todo_list_title"><%= @project.tittle %></h2>
+<p class="todo_list_sub_title"><%= @project.description %></p>
 
 <div id="todo_items_wrapper">
-  <%= render @project.tasks %>
-  <div id="form">
-    <%= render "tasks/form" %>
-  </div>
+	<%= render @project.tasks %>
+	<div id="form">
+		<%= render "tasks/form" %>
+	</div>
 </div>
 
-
-
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
-
-  <%= button_to "Destroy this project", @project, method: :delete %>
+<div class="links">
+	<%= link_to 'Edit', edit_project_path(@project), class: 'link_to' %> 
+	<%= link_to 'Back', projects_path, class: 'link_to' %> 
+	<%= button_to 'Delete',project_path(@project),  form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete,  class: 'button_delete' %>
 </div>

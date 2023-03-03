@@ -1,14 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<% @projects.each do |project| %>
+  <div class="index_row clearfix">
+    <h2 class="todo_list_title"><%= link_to project.tittle, project %></h2>
+    <p class="todo_list_sub_title"><%= project.description %></p>
+  </div>
+<% end %>
 
-<h1>Projects</h1>
-
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
+<div class="links">
+  <%= link_to "New Projects", new_project_path, class:"link_to" %>
 </div>
-
-<%= link_to "New project", new_project_path %>
