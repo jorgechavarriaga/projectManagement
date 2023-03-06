@@ -1,28 +1,57 @@
-$light: rgba(100, 150, 250, .75);
+@mixin bold_font {
+	font-family: 'Dosis', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+$light: #22388e;
 $dark: #eeefef;
 
 * {
-   box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
 }
+
+body {
+	padding-top: 4.5rem;
+	font-family: 'Dosis', sans-serif;
+    
+}
+
+
 html {
  height: 100%;
 }
 
-body {
-    height: 100%;
- background: #eeeeff;
- font-family: 'Merriweather', serif;
+
+img {
+	float: left;
+	height: 3rem;
+	width: 5rem;
+	margin-right: 0.5rem;
+	margin-top: -0.25rem;
 }
 
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+	color: $light;
+}
+
+.wrapper_with_padding {
+	width: 80%;
+	margin: 0 auto;
+	padding: 3.5rem 0;
+}
 
 .clearfix:before,
 .clearfix:after {
-   content: " ";
-   display: table;
+	content: " ";
+	display: table;
 }
 
 .clearfix:after {
-   clear: both;
+	clear: both;
 }
 
 #notice {
@@ -35,13 +64,26 @@ body {
 .container {
    width: 200%;
    max-width: 1200px;
-   background: $light;
+   color: $light;
    margin: 3em auto 0 auto;
    border-radius: 0px;
-   -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
    box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
    padding: 1em 0;
+   -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
 }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.petbutler.com/franchise-opportunity/wp-content/uploads/sites/2/2019/02/project-management-manage-staff-projects.jpg');
+    background-size: cover;
+    opacity: 0.1;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -999;
+  }
 
 // PROJECTS STYLING 
 
@@ -211,11 +253,19 @@ input[type="submit"] {
 }
 
 button {
-    background-color: #87acfc;
-    border: none;
-    color: black;
-    font-size: 16px;
+    background-color: #22388e;;
+    padding: .2rem 1.5rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 2.5rem;   
 }
+
+button a {
+    text-decoration: none;
+    color: white; 
+  }
+  
+
 
 .link_to  {
     background-color: white;
@@ -249,5 +299,159 @@ button {
     background-color: darkred;
   }
   
+// HEADER STYLING
+
+header {
+	background: #22388e;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 1.75rem 0;
+	border-bottom: 1.5px #22388e;
+
+	.header_inner {
+		width: 90%;
+		margin: 0 auto;
+
+		#logo {
+			display: inline-block;
+            text-decoration: none;
+			width: 20rem;
+			font-weight: bold;
+			color: white;
+			font-family: Helvetica, sans-serif;
+			font-size: 2.0rem;
+		}
+
+		nav {
+			float: right;
+
+			a {
+				text-decoration: none;
+				color: white;
+				font-size: 1.1rem;
+				line-height: 1.5;
+				margin-left: 1rem;
+
+				&:hover {
+					color: #C0C1C1;
+				}
+			}
+		}
+	}
+}
+
+// FOOTER STYLING (OPTIONAL)
+
+footer {
+	background: #22388e;
+	width: 100%;
+	padding: 2rem 0;
+	color: white;
+	text-align: center;
+	@include bold_font;
+
+	p {
+		margin: 0;
+		font-size: .65rem;
+	}
+}
+
+#banner {
+	text-align: center;
+	padding: 7.5rem 0;
+
+	h1 {
+		@include bold_font;
+		color: rgba(61,26,24,1) 23%;
+		font-size: 3.5rem;
+		margin: 0;
+	}
+
+	p {
+		font-size: 1.5rem;
+		margin: 0 0 2.5rem 0;
+		color: rgba(82, 158, 204, 0.6);
+	}
+}
+
+#testimonial {
+	text-align: center;
+	font-size: 1.5rem;
+	color: #afb0b0;
+	padding: 3.5rem 0;
+
+	.quote {
+		margin: 0 0 .5rem 0;
+	}
+
+	.name {
+		@include bold_font;
+		color: white;
+		margin: 0;
+		font-size: .85rem;
+	}
+}
+
+
+#callouts {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+	width: 100%;
+	min-height: 10rem;
+	display: table;
+
+	.callout_inner {
+		vertical-align: middle;
+	}
+
+	.callout {
+		text-align: center;
+		width: 100%;
+		
+		float: left;
+
+		h2 {
+			@include bold_font;
+			color: $light;
+			margin-bottom: 0;
+		}
+
+		p {
+			color: $light;
+		}
+	}
+}
+
+
+
+#bottom_cta {
+	text-align: center;
+	padding: 0.5rem 0;
+
+	h2 {
+		@include bold_font;
+		color: #25358c;
+		font-size: 3rem;
+		margin: 0;
+	}
+
+	h1 {
+		@include bold_font;
+		color: rgba(61,26,24,1) 23%;
+		font-size: 3.5rem;
+		margin: 0;
+	}
+
+	p {
+		font-size: 1.5rem;
+		margin: 0 0 2.5rem 0;
+		color: rgba(61,26,24,1) 13%;
+	}
+}
+
+
+
 
 ::-webkit-input-placeholder { color: $dark; }

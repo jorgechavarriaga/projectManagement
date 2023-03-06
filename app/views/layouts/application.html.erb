@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectManagement</title>
+    <title>Project Management</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,8 +15,23 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <header>
+      <div class="header_inner">
+        <%= link_to "Project Management", root_path, id: "logo" %>
+        <nav>
+          <% if user_signed_in? %>
+            <%= link_to "Create Project", new_project_path %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Log In", new_user_session_path %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
     <div class="container">
-      <%= yield %>
+      <div class="overlay"></div>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
