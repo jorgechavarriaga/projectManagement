@@ -5,7 +5,7 @@
 }
 
 $light: #22388e;
-$dark: #eeefef;
+$dark: #25358c;
 
 * {
 	box-sizing: border-box;
@@ -30,6 +30,11 @@ img {
 	width: 5rem;
 	margin-right: 0.5rem;
 	margin-top: -0.25rem;
+}
+
+hr{
+    border-color: $dark;
+    height: 2px;
 }
 
 .wrapper {
@@ -93,11 +98,11 @@ img {
    font-weight: 700;
    font-size: 2.5rem;
    text-transform: uppercase;
-   color: white;
+   color: $dark;
    margin: 0;
    a {
        text-decoration: none;
-       color: white;
+       color: $dark;
        transition: all .4s ease-in-out;
        &:hover {
            opacity: 0.4;
@@ -134,29 +139,32 @@ img {
 // TASKS STYLING
 
 #todo_items_wrapper {
-   .row {
-       width: 100%;
-       border-top: 1px solid rgba(250,250,250, .3);
-       border-bottom: 1px solid rgba(250,250,250, .3);
-       .complete {
-           width: 10%;
-           float: left;
-           text-align: center;
-           border-right: 1px solid rgba(250,250,250, .3);
-           padding: 1em 0;
-       }
-       .todo_item {
-           width: 80%;
-           float: left;
-           p {
+    .row {
+        width: 100%;
+        border-top: 1px solid rgba(250,250,250, .3);
+        border-bottom: 1px solid rgba(250,250,250, .3);
+        .complete {
+            width: 10%;
+            float: left;
+            text-align: center;
+            border-right: 1px solid rgba(250,250,250, .3);
+            padding: 1em 0;
+        }
+        .todo_item {
+            width: 80%;
+            float: left;
+            p {
                margin: 0;
                padding: 1em;
                color: $dark;
                font-weight: 100;
            }
+        .todo_item_date{
+            text-align: right;
+            font-size: .65rem
+        } 
        }
        .trash {
-           width: 10%;
            float: left;
            text-align: center;
            border-left: 1px solid rgba(250,250,250, .3);
@@ -170,6 +178,7 @@ img {
            }
        }
    }
+
    #form {
        margin-top: 2em;
        padding: 0 5%;
@@ -253,26 +262,27 @@ input[type="submit"] {
 }
 
 button {
-    background-color: #22388e;;
     padding: .2rem 1.5rem;
+    background-color: #22388e;
     border-radius: 2rem;
     text-decoration: none;
-    font-size: 2.5rem;   
+    font-size: 1rem;   
+    border: 1px solid #ccc;
 }
 
 button a {
     text-decoration: none;
     color: white; 
   }
-  
+
 
 
 .link_to  {
     background-color: white;
     color: black;
-    border: none;
+    border: 1px solid #ccc;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 2rem;
     font-size: 16px;
     margin-left: 5rem;
     margin-right: 5rem;
@@ -286,17 +296,17 @@ button a {
   }
 
 .button_delete {
-    background-color: red;
+    background-color: $dark;
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 1.5rem;
     font-size: 16px;
     cursor: pointer;
   }
   
   .button_delete:hover {
-    background-color: darkred;
+    background-color: #5c71c1;
   }
   
 // HEADER STYLING
@@ -449,6 +459,37 @@ footer {
 		margin: 0 0 2.5rem 0;
 		color: rgba(61,26,24,1) 13%;
 	}
+}
+
+#todo_items_wrapper #form input[type="text"] {
+    border: 1px solid black;
+}
+
+#todo_items_wrapper #form input[type="submit"] {
+    border: 1px solid black;
+    border-radius: 1.5rem;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	width: 100%;
+	margin-bottom: 1rem;
+	border: 1px solid black;
+	border-radius: .4rem;
+}
+
+input[type="email"],
+input[type="password"] {
+    height: 40px;
+}
+
+input[type="submit"] {
+    margin: 1rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
 }
 
 

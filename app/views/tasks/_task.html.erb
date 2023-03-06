@@ -2,29 +2,33 @@
 	<% if task.completed? %>
 		<div class="complete">
 			<%= button_to complete_project_task_path(@project, task.id), method: :patch do %>
-				<i style="opacity:0.4;" class="fa fa-check" style="color: black"></i>
+				<i style="opacity:0.4;" class="fa fa-check" style="color: white"></i>
 			<% end %>
 		</div>
 		<div class="todo_item">
 			<p style="opacity: 0.4;"><strike><%= task.content %></strike></p>
+			<p class="todo_item_date"><%= task.completed_at.localtime.strftime("%Y-%m-%d - %H:%M:%S %p") %></p>
+			<p class="todo_item_date"><%= time_ago_in_words(task.completed_at, include_seconds: true) %> ago</p>
 		</div>
 		<div class="trash">
 			<%= button_to project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-				<i class="fa fa-trash" style="color: black"></i>
+				<i class="fa fa-trash" style="color: white"></i>
 			<% end %>
 		</div>
 	<% else %>
 		<div class="complete">
 			<%= button_to complete_project_task_path(@project, task.id), method: :patch do %>
-				<i class="fa fa-check" style="color: black"></i>
+				<i class="fa fa-check" style="color: white"></i>
 			<% end %>
 		</div>
 		<div class="todo_item">
 			<p><%= task.content %></p>
+			<p class="todo_item_date"><%= task.created_at.localtime.strftime("%Y-%m-%d - %H:%M:%S %p") %></p>
+			<p class="todo_item_date"><%= time_ago_in_words(task.created_at, include_seconds: true) %> ago</p>
 		</div>
 		<div class="trash">
 			<%= button_to project_task_path(@project, task.id), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete do %>
-				<i class="fa fa-trash" style="color: black"></i>
+				<i class="fa fa-trash" style="color: white"></i>
 			<% end %>
 		</div>
 	<% end %>
