@@ -80,8 +80,8 @@ Rails.application.configure do
     password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
-  config.action_mailer.default_url_options = {:host =>'localhost:3000'}
+  config.action_mailer.default_url_options = {:host =>'90b7-142-118-5-74.ngrok.io'}
 
   
-  config.hosts << "90b7-142-118-5-74.ngrok.io"
+  config.hosts << "5600-142-118-5-74.ngrok.io"
 end
